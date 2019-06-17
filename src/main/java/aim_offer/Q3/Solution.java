@@ -1,4 +1,4 @@
-package aim_offer;
+package aim_offer.Q3;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -9,7 +9,7 @@ import java.util.Stack;
  * 题目描述
  * 输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。
  */
-public class A3_GetArrayListFromLinkListWithDESC {
+public class Solution {
 
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         Stack<Integer> stack=new Stack<>();
