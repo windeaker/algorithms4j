@@ -7,7 +7,9 @@ import java.util.Stack;
  * 题目描述
  * 输入两个链表，找出它们的第一个公共结点。
  * 解题思路
- *
+ * 如果两个链表有公共节点，那么最后一个节点必然是公共节点，
+ * 因此可以从最后一个公共节点向前找：
+ * 先将俩链表压入栈，然后同时出栈，直到找到第一个公共节点结束。
  */
 public class Solution {
     public static ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
