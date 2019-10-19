@@ -8,6 +8,6 @@ package aim_offer;
  */
 public class Q32 {
     public String PrintMinNumber(int [] numbers) {
-
+        return null;
     }
 }
