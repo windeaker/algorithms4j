@@ -1,4 +1,4 @@
-package base.tree;
+package base.search;
 
 public class BPlusTree {
 }
