@@ -156,17 +156,40 @@ public class BinarySearchTree<E extends Comparable> {
     }
 
 
-    private class BSTNode<E extends Comparable> {
-        E data;
-        BSTNode left;
-        BSTNode right;
+    private class BSTNode<D extends Comparable> {
+        private D data;
+        private BSTNode left;
+        private BSTNode right;
 
-        public BSTNode(E data) {
+        public BSTNode(D data) {
             left = null;
             right = null;
             this.data = data;
         }
 
+        public D getData() {
+            return data;
+        }
+
+        public void setData(D data) {
+            this.data = data;
+        }
+
+        public BSTNode getLeft() {
+            return left;
+        }
+
+        public void setLeft(BSTNode left) {
+            this.left = left;
+        }
+
+        public BSTNode getRight() {
+            return right;
+        }
+
+        public void setRight(BSTNode right) {
+            this.right = right;
+        }
 
         @Override
         public String toString() {
