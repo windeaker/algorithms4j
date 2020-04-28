@@ -15,7 +15,7 @@ import common.CommonUtil;
  * 所以返回 [0, 1]
  * @author windeaker
  */
-public class A1_SumOfTwoNumber {
+public class Q1 {
     public int[] twoSum(int[] nums, int target) {
         int length=nums.length;
         int[] result=new int[2];
@@ -34,6 +34,6 @@ public class A1_SumOfTwoNumber {
 
     public static void main(String[] args) {
         int[] nums = new int[]{3,2,4};int target = 6;
-        System.out.println(CommonUtil.convertArrayToString(new A1_SumOfTwoNumber().twoSum(nums,target)));
+        System.out.println(CommonUtil.convertArrayToString(new Q1().twoSum(nums,target)));
     }
 }

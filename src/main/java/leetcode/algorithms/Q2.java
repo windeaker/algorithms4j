@@ -16,7 +16,7 @@ import java.util.Stack;
  * 输出：7 -> 0 -> 8
  * 原因：342 + 465 = 807
  */
-public class A2_AddTwoNumber {
+public class Q2 {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode point = l1, firstNode = null;
         long a1 = 0, a2 = 0;

@@ -27,7 +27,7 @@ public class AVLTree<E extends Comparable> {
     }
 
     public AVLNode<E> getValue(){
-
+        return null;
     }
 
     public void setValue(){
@@ -35,10 +35,11 @@ public class AVLTree<E extends Comparable> {
     }
 
     private boolean checkForAdd(){
-
+        return false;
     }
 
     private boolean balanceAjust(){
+        return false;
 
     }
 

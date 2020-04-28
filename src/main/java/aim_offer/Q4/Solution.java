@@ -35,7 +35,6 @@ public class Solution {
     }
 
     /**
-     * 此方法参考此篇博客  https://www.cnblogs.com/zywu/p/5758917.html
      * @param pre
      * @param ps
      * @param pe
