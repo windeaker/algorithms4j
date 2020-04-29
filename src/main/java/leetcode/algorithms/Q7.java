@@ -23,6 +23,7 @@ import java.util.ArrayList;
  */
 public class Q7 {
     public int reverse(int x) {
+        //todo
         int temp=x;
         ArrayList<Integer> arrayList=new ArrayList<>();
 //        for(int i=)

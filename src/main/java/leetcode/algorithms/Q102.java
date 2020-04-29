@@ -34,14 +34,31 @@ import java.util.Queue;
  */
 public class Q102 {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        Queue<Integer> outQueNum=new ArrayDeque<>();
-        Queue<TreeNode> nodeQue=new ArrayDeque<>();
-        Queue<TreeNode> nodeQue2=new ArrayDeque<>();
-        List<List<Integer>> result=new ArrayList<>();
-        while(root!=null){
-            nodeQue.add(root);
-
+        if(root==null){
+            return new ArrayList();
         }
-        return null;
+        Queue<TreeNode> nodeQue=new ArrayDeque<>();
+        List<List<Integer>> result=new ArrayList<>();
+        nodeQue.add(root);
+        int count;
+        while(!nodeQue.isEmpty()){
+            count=nodeQue.size();
+            List<Integer> temp=new ArrayList<>();
+            while(count>0){
+                root =nodeQue.poll();
+                if (root!=null){
+                    temp.add(root.val);
+                    if (root.left!=null){
+                        nodeQue.add(root.left);
+                    }
+                    if (root.right!=null){
+                        nodeQue.add(root.right);
+                    }
+                }
+                count--;
+            }
+            result.add(temp);
+        }
+        return result;
     }
 }

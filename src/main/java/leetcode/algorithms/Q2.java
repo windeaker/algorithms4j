@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Stack;
 
 /**
+ * 2. 两数相加
  * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
  * <p>
  * 如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
@@ -18,6 +19,7 @@ import java.util.Stack;
  */
 public class Q2 {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        // TODO: 20/4/29
         ListNode point = l1, firstNode = null;
         long a1 = 0, a2 = 0;
         int i = 0;

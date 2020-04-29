@@ -1,10 +1,11 @@
 package base.tree;
 
-
-import leetcode.algorithms.TreeNode;
-
 import java.util.*;
 
+/**
+ * 二叉树数据结构，相关遍历操作
+ * @param <E>
+ */
 public class BinaryTree<E> {
 
     transient BNode root;
@@ -45,8 +46,9 @@ public class BinaryTree<E> {
     }
 
     public List<E> traversingFromRoot(BNode root,TraversalType type){
+        List<E> resultSet=null;
         if (root!=null){
-            List<E> resultSet=new ArrayList<>();
+            resultSet=new ArrayList<>();
             switch (type){
                 case NLR:
                     preOrderWithRecursion(root,resultSet);
@@ -61,7 +63,27 @@ public class BinaryTree<E> {
                     break;
             }
         }
-        return null;
+        return resultSet;
+    }
+
+    public List<E> traversingFromRootWithStack(BNode root,TraversalType type){
+        List<E> resultSet=null;
+        if (root!=null){
+            switch (type){
+                case NLR:
+                    resultSet=preOrderWithStack(root);
+                    break;
+                case LNR:
+                    resultSet=inOrderWithStack(root);
+                    break;
+                case LRL:
+                    resultSet=postOrderWithStack(root);
+                    break;
+                default:
+                    break;
+            }
+        }
+        return resultSet;
 
     }
 
@@ -105,12 +127,29 @@ public class BinaryTree<E> {
         return result;
     }
 
-    private void inOrderWithStack(BNode root){
-//        if (cursor!=null&&list!=null){
-//            inOrderWithRecursion(cursor.left,list);
-//            list.add((E)cursor.value);
-//            inOrderWithRecursion(cursor.right,list);
-//        }
+    /**
+     * 使用栈中序遍历二叉树，更多解法参考
+     * @see leetcode.algorithms.Q94
+     * @param root
+     * @return
+     */
+    private List<E> inOrderWithStack(BNode root){
+        Stack<BNode> stack=new Stack<>();
+        List<E> result=new ArrayList<>();
+        BNode current=root;
+        while(!stack.isEmpty()||current!=null){
+            if (current!=null){
+                stack.push(current);
+                current=current.left;
+            }else{
+                current=stack.pop();
+                if (current!=null) {
+                    result.add((E)current.value);
+                    current=current.right;
+                }
+            }
+        }
+        return result;
     }
 
     /**
