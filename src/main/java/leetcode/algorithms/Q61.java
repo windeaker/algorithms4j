@@ -23,26 +23,28 @@ package leetcode.algorithms;
  */
 public class Q61 {
     public ListNode rotateRight(ListNode head, int k) {
-        // todo 晕了晕了等下弄
         ListNode point = head, preHead = null;
-        while (k > 0) {
-            //如果到底了，就头尾连接
-            if (point.next==null){
-                point.next=head;
-            }
-            if (preHead == null) {
-                preHead = point;
-            } else {
-                preHead = preHead.next;
-            }
-            point = point.next;
-            k--;
+        int size=0;
+        while(point!=null){
+            preHead=point;
+            point=point.next;
+            size++;
         }
-        //首尾相连
-        point.next = head;
-        //创建新头节点
-        head = preHead.next;
-        preHead.next = null;
+        if (size==0){
+            return head;
+        }
+        //这时候，preHead已指向最后一个节点，首尾相连
+        preHead.next=head;
+        //精简旋转圈数
+        int tmp=k%size;
+        //下一个尾节点的位置
+        tmp=size-tmp;
+        while(tmp>0){
+            preHead=preHead.next;
+            tmp--;
+        }
+        head=preHead.next;
+        preHead.next=null;
         return head;
     }
 }
