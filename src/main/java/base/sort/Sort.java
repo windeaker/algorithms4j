@@ -1,19 +1,19 @@
 package base.sort;
 
 /**
- *八大内部排序算法
- *                    直接插入排序
- *          插入排序-->
- *                    希尔排序
- *                    冒泡排序
- *          交换排序-->
- *                     快速排序
- *内部排序-->
- *                    简单选择排序
- *          选择排序-->
- *                    堆排序
- *          基尔排序
- *          归并排序
+ * 八大内部排序算法
+ * 直接插入排序
+ * 插入排序-->
+ * 希尔排序
+ * 冒泡排序
+ * 交换排序-->
+ * 快速排序
+ * 内部排序-->
+ * 简单选择排序
+ * 选择排序-->
+ * 堆排序
+ * 基尔排序
+ * 归并排序
  *
  * @author windeaker
  * @version 1.0
@@ -109,29 +109,40 @@ public class Sort {
      * @param end         排序结束点
      */
     private static void partQuickSort(Comparable[] comparables, int start, int end) {
-        if (start >= 0 && end > start) {
-            int pivot = start, left = start, right = end;
-            Comparable pivotVal = comparables[pivot];
-            while (left != right) {
-                while (left < right && lessOrEqual(pivotVal, comparables[right])) {
-                    right--;
-                }
-                if (left < right) {
-                    comparables[left] = comparables[right];
-                    left++;
-                }
-                while (left < right && moreOrEqual(pivotVal, comparables[left])) {
-                    left++;
-                }
-                if (left < right) {
-                    comparables[right] = comparables[left];
-                    right--;
-                }
-            }
-            comparables[left] = pivotVal;
-            partQuickSort(comparables, start, left - 1);
-            partQuickSort(comparables, left + 1, end);
+        if (start < 0 || end < 0) {
+            throw new IndexOutOfBoundsException("数组越界");
         }
+        if (end > start) {
+            return;
+        }
+        /**
+         * 枢轴坐标
+         */
+        int pivot = start;
+        int left = start, right = end;
+        /**
+         * 枢轴值
+         */
+        Comparable pivotVal = comparables[pivot];
+        while (left != right) {
+            while (left < right && lessOrEqual(pivotVal, comparables[right])) {
+                right--;
+            }
+            if (left < right) {
+                comparables[left] = comparables[right];
+                left++;
+            }
+            while (left < right && moreOrEqual(pivotVal, comparables[left])) {
+                left++;
+            }
+            if (left < right) {
+                comparables[right] = comparables[left];
+                right--;
+            }
+        }
+        comparables[left] = pivotVal;
+        partQuickSort(comparables, start, left - 1);
+        partQuickSort(comparables, left + 1, end);
     }
 
     /**
